@@ -7,7 +7,7 @@ const app = express();
 app.use(bodyparser.urlencoded({extended:false}));
 app.use(bodyparser.json());
 
-
+const port = process.env.PORT || 3000;
 
 //app.use(express.json());
 app.get('/',(req,res)=>{
@@ -19,6 +19,6 @@ res.send("Hello home page here");
 // });
 app.use('/notes',require('./routes/notes_route'));
 
-app.listen(3000,()=>{
-console.log(`listening at ${3000}`);
+app.listen(port,()=>{
+console.log(`listening at ${port}`);
 })
