@@ -37,12 +37,12 @@ const notesById = async(req,res)=>{
     }
 }
 const deleteNote = async(req,res)=>{
-    console.log("userid is ",req.params.userid)
+    console.log("userid is ",req.params.id)
     // if(!req.params.userid) return res.status(400).json({'message':"User Id required"});
-    const onenote = await note.findOne({userid:req.params.userid}).exec();
-    if(!onenote) return res.status(400).json({'message':`no userid matches for ${req.params.userid}`});
-    const deletenote = await note.deleteOne({userid:req.params.userid});
-    res.status(200).json({'message':`user with userid ${req.params.userid} deleted`});
+    const onenote = await note.findOne({id:req.params.id}).exec();
+    if(!onenote) return res.status(400).json({'message':`no userid matches for ${req.params.id}`});
+    const deletenote = await note.deleteOne({id:req.params.id});
+    res.status(200).json({'message':`user with userid ${req.params.id} deleted`});
 
 }
 const updateNote = async(req,res)=>{
