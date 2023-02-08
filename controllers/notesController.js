@@ -46,13 +46,13 @@ const deleteNote = async(req,res)=>{
 
 }
 const updateNote = async(req,res)=>{
-    const finduser = await note.findOne({userid:req.params.userid}).exec();
+    const finduser = await note.findOne({userid:req.params.id}).exec();
    
-    if(!finduser) return res.status(400).json({'message':`no user matches for  userid ${req.params.userid}`});
+    if(!finduser) return res.status(400).json({'message':`no user matches for  userid ${req.params.id}`});
     if(req?.body?.title) finduser.title = req.body.title;
     if(req?.body?.content) finduser.content = req.body.content;
     await finduser.save(); 
-    res.status(200).json({'message':`user with userid ${req.params.userid} updated`});
+    res.status(200).json({'message':`user with userid ${req.params.id} updated`});
     
 }
 

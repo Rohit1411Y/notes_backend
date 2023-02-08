@@ -7,6 +7,6 @@ router.post('/',newNote);
 
 router.get('/:userid',notesById)
 router.delete('/:id',deleteNote);
-router.patch('/:userid',updateNote);
+router.patch('/:id',updateNote);
 
 module.exports = router;
