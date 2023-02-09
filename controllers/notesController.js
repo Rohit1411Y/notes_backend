@@ -26,7 +26,7 @@ const notesById = async(req,res)=>{
         //const userid = req.params.userid;
         
         if(!req.params.userid) return res.status(400).json({"message":"User Id required"});
-        const onenote = await note.findOne({userid:req.params.userid}).exec();
+        const onenote = await note.find({userid:req.params.userid}).exec();
         if(!onenote) return res.status(400).json({"message":`no userid matches for ${req.params.userid}`});
         res.status(200).json(onenote);
 
